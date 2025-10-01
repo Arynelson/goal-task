@@ -18,7 +18,7 @@ const Auth = () => {
   });
 
   useEffect(() => {
-    document.title = 'logo - Seu assistente de produtividade';
+    document.title = 'Goal Task - Seu assistente de produtividade';
   }, []);
 
   if (loading) {
@@ -69,10 +69,10 @@ const Auth = () => {
     <div className="min-h-screen bg-background flex flex-col">
       {/* Header */}
       <header className="text-center pt-12 pb-8">
-        <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
-          <Trophy className="w-10 h-10 text-primary-foreground" />
+        <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden">
+          <img src="/logo.png" alt="Goal Task" className="w-full h-full object-cover" />
         </div>
-        <h1 className="text-3xl font-bold text-foreground mb-2">logo</h1>
+        <h1 className="text-3xl font-bold text-foreground mb-2">Goal Task</h1>
         <p className="text-muted-foreground">Seu assistente de produtividade</p>
       </header>
 
