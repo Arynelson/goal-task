@@ -1,0 +1,4 @@
+project_id = "ulimvxqcynzvuokwsxld"
+
+[functions.generate-goal-breakdown]
+verify_jwt = false

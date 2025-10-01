@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//g/claude/workflows/**)",
+      "Read(//g/claude/**)",
+      "Bash(python run_tests.py:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(if exist nul del /f nul)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

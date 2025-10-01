@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design System for Goal Monitoring App - Mint/Teal Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base Colors - Soft lime background with clean whites */
+    --background: 84 55% 96%; /* Very light lime green */
+    --foreground: 160 30% 15%; /* Dark teal for text */
+
+    /* Cards - Clean white with subtle shadows */
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 15%;
+
+    /* Primary - Beautiful teal/mint */
+    --primary: 167 82% 42%; /* Main teal #00D4AA */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 167 82% 38%;
+    --primary-light: 167 82% 88%;
+
+    /* Secondary - Soft greens */
+    --secondary: 84 40% 92%;
+    --secondary-foreground: 160 30% 15%;
+
+    /* Muted elements */
+    --muted: 84 30% 90%;
+    --muted-foreground: 160 15% 45%;
+
+    /* Accent - Brighter mint */
+    --accent: 167 70% 85%;
+    --accent-foreground: 160 30% 15%;
+
+    /* Status colors */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 93% 58%;
+    --warning-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders and inputs */
+    --border: 84 30% 85%;
+    --input: 0 0% 100%;
+    --input-border: 167 30% 80%;
+    --ring: 167 82% 42%;
+
+    /* Progress and charts */
+    --progress-bg: 84 40% 88%;
+    --progress-fill: 167 82% 42%;
+    
+    /* Consistency chart colors */
+    --chart-active: 167 82% 42%;
+    --chart-inactive: 84 30% 85%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* Dark mode - Darker version maintaining the mint theme */
+  .dark {
+    --background: 160 30% 8%;
+    --foreground: 84 55% 96%;
+
+    --card: 160 25% 12%;
+    --card-foreground: 84 55% 96%;
+
+    --popover: 160 25% 12%;
+    --popover-foreground: 84 55% 96%;
+
+    --primary: 167 82% 45%;
+    --primary-foreground: 160 30% 8%;
+    --primary-hover: 167 82% 50%;
+    --primary-light: 167 82% 15%;
+
+    --secondary: 160 20% 20%;
+    --secondary-foreground: 84 55% 96%;
+
+    --muted: 160 15% 18%;
+    --muted-foreground: 84 20% 65%;
+
+    --accent: 167 40% 25%;
+    --accent-foreground: 84 55% 96%;
+
+    --success: 142 76% 40%;
+    --success-foreground: 160 30% 8%;
+    --warning: 45 93% 65%;
+    --warning-foreground: 160 30% 8%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 160 30% 8%;
+
+    --border: 160 15% 20%;
+    --input: 160 25% 12%;
+    --input-border: 167 30% 30%;
+    --ring: 167 82% 45%;
+
+    --progress-bg: 160 15% 18%;
+    --progress-fill: 167 82% 45%;
+    
+    --chart-active: 167 82% 45%;
+    --chart-inactive: 160 15% 20%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  /* Custom button variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground font-medium px-6 py-3 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-primary text-primary hover:bg-primary-light font-medium px-6 py-3 rounded-xl transition-all duration-200;
+  }
+
+  /* Card styles */
+  .goal-card {
+    @apply bg-card rounded-xl p-6 shadow-sm border border-border hover:shadow-md transition-all duration-200;
+  }
+
+  .stats-card {
+    @apply bg-card rounded-xl p-4 shadow-sm border border-border;
+  }
+
+  /* Progress bars */
+  .progress-bar {
+    @apply w-full bg-progress-bg rounded-full h-2 overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply bg-progress-fill h-full rounded-full transition-all duration-500 ease-out;
+  }
+
+  /* Task priority indicators */
+  .priority-alta {
+    @apply bg-red-100 text-red-700 px-2 py-1 rounded-md text-xs font-medium;
+  }
+  
+  .priority-media {
+    @apply bg-warning/20 text-orange-700 px-2 py-1 rounded-md text-xs font-medium;
+  }
+  
+  .priority-baixa {
+    @apply bg-success/20 text-green-700 px-2 py-1 rounded-md text-xs font-medium;
+  }
+
+  /* Floating action button */
+  .fab {
+    @apply fixed bottom-6 right-6 bg-primary hover:bg-primary-hover text-primary-foreground w-14 h-14 rounded-full shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:-translate-y-1 z-50;
+  }
+
+  /* Navigation bar */
+  .nav-item {
+    @apply flex flex-col items-center gap-1 px-3 py-2 rounded-lg transition-colors duration-200;
+  }
+  
+  .nav-item.active {
+    @apply text-primary;
+  }
+  
+  .nav-item:not(.active) {
+    @apply text-muted-foreground hover:text-foreground;
+  }
+}
