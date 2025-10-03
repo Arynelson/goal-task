@@ -1,0 +1,202 @@
+criterios_sucesso:
+- Aumento de 20% na pontuação do Lighthouse (performance, acessibilidade, SEO).
+- Redução de 50% no número de re-renders desnecessários.
+- Cobertura de testes acima de 80% nas áreas críticas.
+- Nenhuma vulnerabilidade de segurança de alta criticidade identificada na auditoria
+  final.
+- Redução de 30% no tamanho do bundle inicial.
+estimativa_total: 6-8 semanas
+fases:
+- agente: security_auditor
+  dependencias: []
+  fase: 1
+  nome: Auditoria de Segurança Inicial
+  output_esperado: Relatório detalhado de auditoria de segurança com classificação
+    de risco das vulnerabilidades.
+  status: pending
+  tarefa: Realizar uma auditoria de segurança abrangente do aplicativo, focando em
+    autenticação, autorização, exposição de dados sensíveis (env vars, API keys),
+    vulnerabilidades XSS e CSRF, validações de input, sanitização de dados, cookies
+    e localStorage. Gerar um relatório detalhado com as vulnerabilidades encontradas
+    e sua criticidade.
+- agente: developer
+  dependencias:
+  - 1
+  fase: 2
+  nome: Correção de Vulnerabilidades de Segurança
+  output_esperado: Código corrigido e testado para mitigar as vulnerabilidades identificadas.
+  status: pending
+  tarefa: Implementar as correções necessárias para as vulnerabilidades identificadas
+    no relatório de auditoria de segurança. Inclui a atualização de bibliotecas vulneráveis,
+    correção de falhas de autenticação e autorização, implementação de validação e
+    sanitização de dados, e proteção contra ataques XSS e CSRF.
+- agente: architect
+  dependencias: []
+  fase: 3
+  nome: Revisão da Arquitetura e Estrutura do Código
+  output_esperado: Relatório com sugestões de refatoração, melhorias na estrutura
+    do código e tipagem TypeScript.
+  status: pending
+  tarefa: Revisar a estrutura de pastas e organização do código, identificar código
+    duplicado e oportunidades de refatoração, sugerir patterns para melhor manutenibilidade,
+    revisar tipos TypeScript (evitar 'any', melhorar inferência).
+- agente: developer
+  dependencias:
+  - 3
+  fase: 4
+  nome: Refatoração do Código e Implementação de Boas Práticas
+  output_esperado: Código refatorado e organizado com hooks customizados, tratamento
+    de erros robusto e loading states claros.
+  status: pending
+  tarefa: Implementar as sugestões de refatoração do arquiteto, separando a lógica
+    de negócio em hooks customizados, implementando error boundaries, melhorando o
+    tratamento de erros e loading states, e aplicando boas práticas de desenvolvimento.
+- agente: otimizador
+  dependencias: []
+  fase: 5
+  nome: Análise e Otimização de Performance do React
+  output_esperado: Relatório com identificação de gargalos de performance e plano
+    de otimização detalhado.
+  status: pending
+  tarefa: Identificar re-renders desnecessários, implementar React.memo, useMemo,
+    useCallback onde necessário, revisar a estrutura de componentes (separar lógica
+    e UI), otimizar queries do Supabase (usar React Query para cache), implementar
+    lazy loading de rotas e componentes pesados, revisar dependências de useEffect
+    e implementar virtualization em listas longas (se aplicável).
+- agente: developer
+  dependencias:
+  - 5
+  fase: 6
+  nome: Implementação de Otimizações de Performance
+  output_esperado: Código otimizado com performance melhorada e tempos de carregamento
+    reduzidos.
+  status: pending
+  tarefa: Implementar as otimizações de performance identificadas no relatório, incluindo
+    memoização, otimização de queries, lazy loading, revisão de useEffect e virtualização
+    de listas.
+- agente: developer
+  dependencias: []
+  fase: 7
+  nome: Otimização do Supabase e Database
+  output_esperado: Queries otimizadas, paginação implementada, RLS revisado e estrutura
+    do banco de dados otimizada.
+  status: pending
+  tarefa: Revisar queries e otimizar com índices (se necessário), implementar paginação
+    nas listagens, revisar RLS (Row Level Security) policies, otimizar fetching (usar
+    select específico, evitar over-fetching), implementar cache estratégico e revisar
+    a estrutura de tabelas (normalização).
+- agente: architect
+  dependencias: []
+  fase: 8
+  nome: Análise e Otimização do Bundle Size e Build
+  output_esperado: Relatório com análise do bundle size e plano de otimização.
+  status: pending
+  tarefa: Analisar o tamanho do bundle, identificar dependências pesadas e alternativas,
+    implementar code splitting, revisar imports (tree-shaking), otimizar assets (imagens,
+    fonts) e configurar compression (gzip/brotli).
+- agente: developer
+  dependencias:
+  - 8
+  fase: 9
+  nome: Implementação de Otimizações do Bundle
+  output_esperado: Bundle size reduzido e tempos de carregamento da aplicação otimizados.
+  status: pending
+  tarefa: Implementar as otimizações do bundle size identificadas, incluindo code
+    splitting, tree-shaking, otimização de assets e configuração de compression.
+- agente: developer
+  dependencias: []
+  fase: 10
+  nome: Revisão de UI/UX e Acessibilidade
+  output_esperado: UI/UX aprimorado com foco em acessibilidade, feedback visual claro
+    e mensagens de erro informativas.
+  status: pending
+  tarefa: Verificar acessibilidade (ARIA labels, keyboard navigation), melhorar feedback
+    visual (loading, errors, success), otimizar mobile responsiveness, revisar contraste
+    de cores (WCAG) e implementar skeleton loaders. Melhorar mensagens de erro para
+    o usuário.
+- agente: developer
+  dependencias:
+  - 10
+  fase: 11
+  nome: Implementação de Melhorias de UI/UX e Acessibilidade
+  output_esperado: Interface acessível e intuitiva com feedback visual claro e navegação
+    otimizada.
+  status: pending
+  tarefa: Implementar as melhorias de UI/UX e acessibilidade identificadas, incluindo
+    a adição de ARIA labels, otimização da navegação por teclado, melhoria do feedback
+    visual e correção de problemas de contraste de cores.
+- agente: qa_engineer
+  dependencias: []
+  fase: 12
+  nome: Revisão e Aprimoramento dos Testes
+  output_esperado: Relatório com análise da cobertura de testes e plano para aprimorar
+    a qualidade dos testes.
+  status: pending
+  tarefa: Revisar a cobertura de testes atual, identificar áreas críticas sem testes,
+    sugerir testes de integração importantes, melhorar os testes existentes (Dashboard.test.tsx)
+    e adicionar testes E2E se necessário.
+- agente: developer
+  dependencias:
+  - 12
+  fase: 13
+  nome: Implementação e Execução de Testes
+  output_esperado: Suíte de testes completa e executada com sucesso, garantindo a
+    qualidade e estabilidade do código.
+  status: pending
+  tarefa: Implementar os testes sugeridos, incluindo testes de integração e E2E, e
+    executar todos os testes para garantir a estabilidade e qualidade do código.
+- agente: developer
+  dependencias: []
+  fase: 14
+  nome: Implementação de Melhorias Gerais
+  output_esperado: Aplicativo com funcionalidades adicionais, como PWA, analytics,
+    feature flags e SEO otimizado.
+  status: pending
+  tarefa: Implementar PWA (Service Worker, manifest), adicionar analytics e monitoramento
+    de erros, implementar feature flags, melhorar sistema de notificações, otimizar
+    estratégia de cache e revisar SEO (meta tags, Open Graph).
+- agente: security_auditor
+  dependencias:
+  - 1
+  - 2
+  - 4
+  - 6
+  - 7
+  - 9
+  - 11
+  - 13
+  - 14
+  fase: 15
+  nome: Auditoria de Segurança Final
+  output_esperado: Relatório final de auditoria de segurança com classificação de
+    risco das vulnerabilidades.
+  status: pending
+  tarefa: Realizar uma auditoria de segurança abrangente do aplicativo, focando em
+    autenticação, autorização, exposição de dados sensíveis (env vars, API keys),
+    vulnerabilidades XSS e CSRF, validações de input, sanitização de dados, cookies
+    e localStorage. Gerar um relatório detalhado com as vulnerabilidades encontradas
+    e sua criticidade.
+- agente: doc_writer
+  dependencias:
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  - 13
+  - 14
+  fase: 16
+  nome: Documentação e Guia de Boas Práticas
+  output_esperado: Documentação completa e guia de boas práticas para o aplicativo.
+  status: pending
+  tarefa: Criar documentação detalhada do aplicativo, incluindo arquitetura, componentes,
+    APIs e boas práticas de desenvolvimento. Documentar todas as otimizações e refatorações
+    implementadas.
+objetivo: Melhorar a performance, segurança, qualidade de código e experiência do
+  usuário do Goal Task Manager.
+workflow: Otimização e Refatoração do Goal Task Manager

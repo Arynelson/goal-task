@@ -1,0 +1,110 @@
+criterios_sucesso:
+- Redução de 50% em code smells identificados
+- 100% dos componentes com tipagem estrita
+- Arquitetura validada por pelo menos 2 padrões reconhecidos
+- Cobertura de testes ≥80%
+- Documentação técnica completa para todos os módulos
+estimativa_total: 6-8 semanas
+fases:
+- agente: architect
+  dependencias: []
+  fase: 1
+  nome: Análise Arquitetural Inicial
+  output_esperado: Relatório de problemas arquiteturais e proposta de nova estrutura
+    de pastas
+  status: pending
+  tarefa: Revisar estrutura de pastas atual, identificar problemas de separação de
+    responsabilidades e propor nova organização seguindo patterns (Repository, Service)
+- agente: code_reviewer
+  dependencias: []
+  fase: 2
+  nome: Auditoria de TypeScript
+  output_esperado: Lista de problemas de tipagem e recomendações de melhorias
+  status: pending
+  tarefa: Analisar código para identificar usos de 'any', tipos fracos e oportunidades
+    para generics/utility types
+- agente: developer
+  dependencias:
+  - 1
+  fase: 3
+  nome: Revisão de Componentes
+  output_esperado: Relatório de componentes problemáticos e plano de decomposição
+  status: pending
+  tarefa: Identificar componentes grandes, props drilling e oportunidades para atomic
+    design
+- agente: architect
+  dependencias:
+  - 1
+  fase: 4
+  nome: Análise de Estado Global
+  output_esperado: Recomendação de gerenciamento de estado com justificativa técnica
+  status: pending
+  tarefa: Avaliar performance do Context API e necessidade de Redux/Zustand, propor
+    estratégia otimizada
+- agente: code_reviewer
+  dependencias:
+  - 2
+  fase: 5
+  nome: Identificação de Código Duplicado
+  output_esperado: Lista de duplicações e propostas de abstrações
+  status: pending
+  tarefa: Buscar patterns repetidos e lógica duplicada para extrair para hooks/utilities
+- agente: architect
+  dependencias:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  fase: 6
+  nome: Plano de Refatoração
+  output_esperado: Documento de plano de refatoração com estimativas e prioridades
+  status: pending
+  tarefa: Consolidar recomendações das fases 1-5 em roadmap priorizado com quick wins
+- agente: developer
+  dependencias:
+  - 6
+  fase: 7
+  nome: Implementação Core
+  output_esperado: Código refatorado com novas estruturas e tipos
+  status: pending
+  tarefa: Executar refatorações principais (estrutura, tipos, componentes)
+- agente: developer
+  dependencias:
+  - 5
+  - 7
+  fase: 8
+  nome: Criação de Hooks Customizados
+  output_esperado: Hooks customizados documentados e tipados
+  status: pending
+  tarefa: Implementar novos hooks para lógica compartilhada
+- agente: qa_engineer
+  dependencias:
+  - 7
+  - 8
+  fase: 9
+  nome: Testes e Validação
+  output_esperado: Suíte de testes com cobertura mínima de 80%
+  status: pending
+  tarefa: Criar testes unitários/integração para novas estruturas
+- agente: doc_writer
+  dependencias:
+  - 6
+  - 7
+  fase: 10
+  nome: Documentação Técnica
+  output_esperado: Documentação completa em /docs
+  status: pending
+  tarefa: Criar ADRs, diagramas arquiteturais e guia de estilo
+- agente: architect
+  dependencias:
+  - 9
+  - 10
+  fase: 11
+  nome: Revisão Final
+  output_esperado: Relatório final de qualidade com métricas
+  status: pending
+  tarefa: Validar conformidade com objetivos de manutenibilidade
+objetivo: Melhorar qualidade do código, arquitetura e manutenibilidade do projeto
+  React+TypeScript
+workflow: Refatoração e Melhoria do Goal Task Manager

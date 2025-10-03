@@ -12,7 +12,11 @@
       "Bash(git commit -m \"$(cat <<''EOF''\nInitial commit: Goal Task Manager App\n\nFull-stack task management app with AI-powered goal breakdown.\n\nFeatures:\n- 🎯 Goal management with progress tracking\n- ✅ Task breakdown with due dates and priorities\n- 📊 Dashboard with stats and weekly consistency\n- 👤 User profile with dark mode and i18n (PT/EN)\n- 🔥 Current streak calculation\n- 🤖 Gemini AI integration for goal breakdown\n- 🔐 Supabase authentication and database\n\nTech Stack:\n- React + TypeScript + Vite\n- Tailwind CSS + shadcn/ui\n- Supabase (Auth + Database)\n- Gemini API\n\n🤖 Generated with Claude Code\nhttps://claude.com/claude-code\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(npm test:*)",
+      "Bash(npx vitest:*)",
+      "Bash(find:*)"
     ],
     "deny": [],
     "ask": []

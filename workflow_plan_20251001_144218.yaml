@@ -1,0 +1,112 @@
+criterios_sucesso:
+- Cobertura de testes >90% em todos os módulos
+- Todos os testes passando sem falhas
+- Mocks funcionando corretamente
+- README atualizado com documentação de testes
+- Relatório de segurança sem vulnerabilidades críticas
+- Scripts npm test e coverage funcionando
+estimativa_total: 80 horas
+fases:
+- agente: architect
+  dependencias: []
+  fase: 1
+  nome: Setup do Ambiente de Testes
+  output_esperado: Ambiente de testes configurado e funcional com todos os mocks
+  status: pending
+  tarefa: Configurar ambiente de testes com Vitest, Testing Library e mocks necessários.
+    Criar vitest.config.ts e estrutura de pastas __tests__
+- agente: developer
+  dependencias:
+  - 1
+  fase: 2
+  nome: Implementação de Mocks
+  output_esperado: Arquivos de mock prontos para uso nos testes
+  status: pending
+  tarefa: Criar mocks para Supabase Client, Gemini API e demais dependências externas
+    em __tests__/mocks/
+- agente: qa_engineer
+  dependencias:
+  - 1
+  - 2
+  fase: 3
+  nome: Testes de Autenticação
+  output_esperado: Suite de testes de autenticação com cobertura >90%
+  status: pending
+  tarefa: Implementar testes para Auth.tsx incluindo renderização, validação de campos,
+    integração Supabase e redirecionamentos
+- agente: qa_engineer
+  dependencias:
+  - 1
+  - 2
+  fase: 4
+  nome: Testes de Dashboard
+  output_esperado: Suite de testes do dashboard com cobertura >90%
+  status: pending
+  tarefa: Implementar testes para Dashboard.tsx validando cálculos de estatísticas,
+    progresso e streak
+- agente: qa_engineer
+  dependencias:
+  - 1
+  - 2
+  fase: 5
+  nome: Testes de Gerenciamento de Metas
+  output_esperado: Suite de testes de metas com cobertura >90%
+  status: pending
+  tarefa: Implementar testes para Goals.tsx incluindo CRUD de metas, filtros e integração
+    Gemini AI
+- agente: qa_engineer
+  dependencias:
+  - 1
+  - 2
+  fase: 6
+  nome: Testes de Gerenciamento de Tarefas
+  output_esperado: Suite de testes de tarefas com cobertura >90%
+  status: pending
+  tarefa: Implementar testes para componentes de tarefas incluindo CRUD, conclusão
+    e prioridades
+- agente: qa_engineer
+  dependencias:
+  - 1
+  - 2
+  fase: 7
+  nome: Testes de Integração Supabase
+  output_esperado: Suite de testes de integração Supabase
+  status: pending
+  tarefa: Implementar testes para lib/supabase.ts validando queries e tratamento de
+    erros
+- agente: qa_engineer
+  dependencias:
+  - 1
+  - 2
+  fase: 8
+  nome: Testes de Hooks Customizados
+  output_esperado: Suite de testes de hooks com cobertura >90%
+  status: pending
+  tarefa: Implementar testes para hooks useAuth, useGoals e useTasks
+- agente: security_auditor
+  dependencias:
+  - 3
+  - 7
+  fase: 9
+  nome: Revisão de Segurança
+  output_esperado: Relatório de revisão de segurança
+  status: pending
+  tarefa: Revisar testes de autenticação e validar segurança das integrações
+- agente: doc_writer
+  dependencias:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  fase: 10
+  nome: Documentação
+  output_esperado: Documentação atualizada no README
+  status: pending
+  tarefa: Documentar setup, execução de testes e cobertura no README
+objetivo: Implementar cobertura completa de testes unitários e de integração para
+  o aplicativo
+workflow: Plano de Testes Goal Task Manager

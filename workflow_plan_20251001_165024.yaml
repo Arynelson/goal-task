@@ -1,0 +1,160 @@
+criterios_sucesso:
+- Todas as vulnerabilidades CRÍTICAS e ALTAS identificadas foram corrigidas e validadas
+  por testes de segurança.
+- A checklist de segurança e a documentação de segurança foram criadas e aprovadas
+  pelo time de desenvolvimento.
+- O relatório final da auditoria de segurança foi entregue e aprovado pelo cliente.
+estimativa_total: 4-6 semanas
+fases:
+- agente: security_auditor
+  dependencias: []
+  fase: 1
+  nome: Análise de Autenticação e Autorização
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas na autenticação
+    e autorização, incluindo recomendações de correção.
+  status: pending
+  tarefa: Revisar a implementação do Supabase Auth, incluindo o fluxo de login/logout,
+    armazenamento e renovação de tokens (localStorage vs cookies), proteção de rotas
+    privadas e gerenciamento de sessão. Analisar a política de senhas para garantir
+    a robustez.
+- agente: security_auditor
+  dependencias: []
+  fase: 2
+  nome: Análise de Proteção de Dados Sensíveis
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas na proteção
+    de dados sensíveis, incluindo recomendações de correção.
+  status: pending
+  tarefa: Verificar a segurança das variáveis de ambiente (.env), a exposição de API
+    keys (Supabase, Gemini AI), o armazenamento de dados sensíveis no localStorage/sessionStorage,
+    a presença de dados sensíveis nos logs e a configuração dos headers de segurança.
+    Garantir a aplicação do HTTPS.
+- agente: security_auditor
+  dependencias: []
+  fase: 3
+  nome: Análise de Validação e Sanitização de Dados
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas na validação
+    e sanitização de dados, incluindo recomendações de correção.
+  status: pending
+  tarefa: Revisar a validação de inputs (formulários) e a sanitização de dados do
+    usuário. Analisar as queries SQL (RLS do Supabase) para proteção contra SQL Injection.
+    Revisar a validação no backend (Supabase Functions) e a type safety (TypeScript).
+- agente: security_auditor
+  dependencias: []
+  fase: 4
+  nome: Análise de Vulnerabilidades Web (XSS, CSRF, Clickjacking)
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas em XSS,
+    CSRF e Clickjacking, incluindo recomendações de correção.
+  status: pending
+  tarefa: Verificar a proteção contra XSS (uso de dangerouslySetInnerHTML, renderização
+    de conteúdo de usuário, sanitização de HTML), CSRF (tokens CSRF, proteção em requests
+    críticos) e Clickjacking (headers X-Frame-Options, Content-Security-Policy).
+- agente: security_auditor
+  dependencias: []
+  fase: 5
+  nome: Análise de Segurança do Supabase
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas na segurança
+    do Supabase, incluindo recomendações de correção.
+  status: pending
+  tarefa: Revisar as Row Level Security (RLS) policies, as permissões de tabelas,
+    as políticas de acesso, o isolamento entre usuários, os triggers e functions,
+    e o backup e recovery do Supabase.
+- agente: security_auditor
+  dependencias: []
+  fase: 6
+  nome: Análise de Dependências e Supply Chain
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas nas dependências
+    e supply chain, incluindo recomendações de atualização e correção.
+  status: pending
+  tarefa: Analisar as dependências npm (vulnerabilidades conhecidas), verificar versões
+    desatualizadas, revisar dependências diretas e transitivas, sugerir atualizações
+    de segurança e verificar a integridade de pacotes.
+- agente: security_auditor
+  dependencias: []
+  fase: 7
+  nome: Análise de Segurança da API Gemini
+  output_esperado: Relatório detalhado com vulnerabilidades identificadas na segurança
+    da API Gemini, incluindo recomendações de correção.
+  status: pending
+  tarefa: Verificar a proteção da API key da Gemini AI, analisar o rate limiting,
+    revisar a sanitização de prompts, verificar o tratamento de respostas e analisar
+    a exposição de dados na API.
+- agente: developer
+  dependencias:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  fase: 8
+  nome: Implementação de Correções (Críticas e Altas)
+  output_esperado: Código corrigido e implementado para as vulnerabilidades críticas
+    e altas. Documentação das correções realizadas.
+  status: pending
+  tarefa: Implementar as correções para as vulnerabilidades classificadas como CRÍTICAS
+    e ALTAS, conforme as recomendações dos relatórios das fases anteriores. Inclui
+    patch de código, configurações de segurança e outras medidas necessárias.
+- agente: code_reviewer
+  dependencias:
+  - 8
+  fase: 9
+  nome: Revisão de Código das Correções
+  output_esperado: Relatório de revisão de código com feedback sobre as correções
+    implementadas. Aprovação do código para deploy.
+  status: pending
+  tarefa: Revisar o código implementado na fase anterior para garantir a qualidade,
+    a segurança e a eficácia das correções. Identificar possíveis regressões ou novos
+    problemas introduzidos pelas mudanças.
+- agente: qa_engineer
+  dependencias:
+  - 9
+  fase: 10
+  nome: Testes de Segurança e Validação
+  output_esperado: Relatório de testes de segurança com os resultados da validação
+    das correções. Aprovação das correções para deploy.
+  status: pending
+  tarefa: Realizar testes de segurança para validar as correções implementadas e garantir
+    que as vulnerabilidades foram devidamente mitigadas. Inclui testes de penetração,
+    testes de fuzzing e outros testes de segurança relevantes.
+- agente: doc_writer
+  dependencias: []
+  fase: 11
+  nome: Criação da Checklist de Segurança
+  output_esperado: Checklist de segurança completa e documentada.
+  status: pending
+  tarefa: Criar uma checklist de segurança para futuras features, incluindo boas práticas
+    de segurança e guidelines para o time de desenvolvimento.
+- agente: doc_writer
+  dependencias: []
+  fase: 12
+  nome: Criação da Documentação de Segurança
+  output_esperado: Documentação de segurança completa e documentada.
+  status: pending
+  tarefa: Criar a documentação de segurança, incluindo políticas de segurança, procedimentos
+    de incident response e headers de segurança recomendados.
+- agente: security_auditor
+  dependencias:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  fase: 13
+  nome: Entrega Final e Relatório Consolidado
+  output_esperado: Relatório final da auditoria de segurança, incluindo todos os entregáveis.
+  status: pending
+  tarefa: Consolidar todos os relatórios, o plano de correção priorizado, o código
+    de correção, a checklist de segurança e a documentação de segurança em um relatório
+    final. Apresentar os resultados e as recomendações para o cliente.
+objetivo: Realizar uma auditoria de segurança abrangente no aplicativo Goal Task Manager,
+  identificar vulnerabilidades, propor correções e garantir a proteção dos dados dos
+  usuários.
+workflow: Auditoria de Segurança Completa - Goal Task Manager

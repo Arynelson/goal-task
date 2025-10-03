@@ -1,0 +1,84 @@
+Fase: Criação da Checklist de Segurança
+Agente: doc_writer
+================================================================================
+
+# **Checklist de Segurança para Novas Features**  
+
+Esta checklist fornece diretrizes de segurança para o time de desenvolvimento durante a implementação de novas funcionalidades. O objetivo é garantir que as melhores práticas de segurança sejam seguidas desde o design até a implantação.  
+
+---
+
+## **1. Análise de Segurança Inicial**  
+✅ Realizar uma avaliação de riscos da nova feature.  
+✅ Definir requisitos de segurança específicos para a funcionalidade.  
+✅ Verificar conformidade com políticas internas e regulamentações (GDPR, LGPD, PCI-DSS, etc.).  
+
+---
+
+## **2. Controle de Acesso e Autenticação**  
+✅ Implementar autenticação forte (MFA, OAuth, JWT, etc.).  
+✅ Validar permissões baseadas em roles (RBAC) ou atributos (ABAC).  
+✅ Garantir que a autorização seja verificada em todas as camadas (frontend, backend, API).  
+✅ Evitar hardcoding de credenciais ou tokens no código.  
+✅ Usar mecanismos de expiração de sessão e logout seguro.  
+
+---
+
+## **3. Proteção de Dados**  
+✅ Criptografar dados sensíveis em trânsito (TLS 1.2+) e em repouso (AES-256).  
+✅ Evitar armazenamento desnecessário de informações sensíveis.  
+✅ Implementar máscara de dados em logs e mensagens de erro.  
+✅ Validar e sanitizar todos os inputs para prevenir injeção (SQL, XSS, etc.).  
+
+---
+
+## **4. Segurança em APIs**  
+✅ Implementar rate limiting para prevenir abuso.  
+✅ Validar e sanitizar todos os parâmetros de entrada nas requisições.  
+✅ Usar CORS de forma restritiva, permitindo apenas origens confiáveis.  
+✅ Garantir que endpoints sensíveis exijam autenticação/autorização.  
+
+---
+
+## **5. Proteção Contra Ataques Comuns**  
+✅ Prevenir SQL/NoSQL Injection usando prepared statements e ORMs seguros.  
+✅ Proteger contra XSS (Cross-Site Scripting) sanitizando outputs e usando CSP.  
+✅ Implementar CSRF protection em formulários e ações críticas.  
+✅ Validar uploads de arquivos (tipo, tamanho, assinatura).  
+
+---
+
+## **6. Logs e Monitoramento**  
+✅ Registrar eventos críticos (logins, alterações de permissão, transações sensíveis).  
+✅ Garantir que logs não contenham dados sensíveis em texto claro.  
+✅ Configurar alertas para atividades suspeitas (tentativas de acesso inválido).  
+
+---
+
+## **7. Segurança em Infraestrutura e Deployment**  
+✅ Garantir que dependências estejam atualizadas e livres de vulnerabilidades conhecidas.  
+✅ Usar segredos gerenciados (AWS Secrets Manager, HashiCorp Vault) em vez de hardcoded.  
+✅ Configurar WAF (Web Application Firewall) se aplicável.  
+✅ Implementar testes de segurança automatizados (SAST, DAST, SCA).  
+
+---
+
+## **8. Validação Final e Revisão**  
+✅ Realizar revisão de código com foco em segurança (peer review).  
+✅ Executar testes de penetração e varreduras de vulnerabilidades.  
+✅ Documentar medidas de segurança adotadas na feature.  
+✅ Realizar treinamento ou alinhamento com a equipe sobre os controles implementados.  
+
+---
+
+### **Observações Adicionais**  
+- Consulte o OWASP Top 10 para referências de ameaças comuns.  
+- Mantenha-se atualizado com as últimas ameaças e boas práticas de segurança.  
+- Em caso de dúvidas, consulte o time de segurança da informação.  
+
+**Responsável pela revisão:** [Nome do responsável]  
+**Última atualização:** [Data]  
+
+---  
+
+Esta checklist deve ser adaptada conforme necessário para o contexto do projeto. Garanta que todos os itens sejam verificados antes do lançamento da feature.
